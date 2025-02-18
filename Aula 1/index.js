@@ -9,7 +9,7 @@ app.get('/', (req, res) =>{
 app.get('/home', (req, res) =>{
     res.send('Pagina home');
 });
-app.get('/login', (req, res) =>{
+app.get('/login ', (req, res) =>{
     res.send('Pagina login');
 });
 
