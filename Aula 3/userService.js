@@ -1,4 +1,4 @@
-const User = require("./user");
+const User = require('./user');
 
 class userService {
     constructor(){
@@ -16,4 +16,4 @@ class userService {
     }
 }
 
-modulo.exports = new userService;
+module.exports = new userService;
