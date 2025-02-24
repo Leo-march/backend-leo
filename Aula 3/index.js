@@ -2,7 +2,7 @@ const express = require('express');
 const userService = require('./userService')
 
 const app = express()
-app.use(express.json); //Vou habilitar json no express
+app.use(express.json()); //Vou habilitar json no express
 
 //rota para criar usuário
 
@@ -20,7 +20,7 @@ app.post('/users', (req,res) =>{
 //rota para mostrar os usuários
 
 app.get("/users", (req, res) =>{
-    res.json(userService.getUsers)
+    res.json(userService.getUsers())
 });
 
 const port = 3000;

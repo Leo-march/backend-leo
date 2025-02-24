@@ -12,4 +12,4 @@ class Admin extends User{
     }
 }
 
-module.export = User //Exporta a classe User
+module.exports = User //Exporta a classe User
