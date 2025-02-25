@@ -1,12 +1,12 @@
 const User = require('./user');
-const paht = require('path'); // modulo para manipular caminhos
+const path = require('path'); // modulo para manipular caminhos
 const fs = require('fs'); // modulo para manipular arquivos
 
 class userService {
     constructor(){
         this.filePath = path.join(__dirname, 'user.json');
-        this.users = [];//Array para armazenar user
-        this.nextid = 1;//icontador para gerar id
+        this.users = this.loadUsers();//Array para armazenar user
+        this.nextid = this.getNextId();//icontador para gerar id
     }
 
     loadUsers(){
@@ -22,21 +22,33 @@ class userService {
 }
 
 
-getNextId(){
+getNextId(){ // função para buscar o próximo id
     try{
-    if(this.users.length === 0) return ;
+    if(this.users.length === 0) return 1;
     return Math.max(...this.users.map(user => user.id))+1
 }catch (erro){
     console.log('Erro ao buscar o id', erro)
 }
 }
 
-
-    addUser(nome, email){
-        const user = new User(this.nextid++, nome, email);
-        this.users.push(user);
-        return user;
+saveUsers(){//função para salvar os arquivos
+    try{
+        fs.writeFileSync(this.filePath, JSON.stringify(this.users));
+    }catch(erro){
+        console.log("Erro ao salvar arquivos", erro)
     }
+}
+
+    addUser(nome, email, senha, endereco, telefone, cpf){//função para adicionar um usuário
+        try{
+        const user = new User(this.nextid++, nome, email, senha, endereco, telefone, cpf);
+        this.users.push(user);
+        this.saveUsers();
+        return user;
+    }catch (erro){
+        console.log("Erro ao adicionar o usuário", erro)
+    }
+}
     getUsers(){
         return this.users
     }

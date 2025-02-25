@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 2,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 3,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 4,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    }
+]
