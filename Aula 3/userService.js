@@ -52,6 +52,32 @@ saveUsers(){//função para salvar os arquivos
     getUsers(){
         return this.users
     }
+
+    deleteUser(id){
+        try{
+            this.users = this.users.filter(user => user.id !== id);
+            this.saveUsers();
+        }catch{
+            console.log("Erro ao deletar o usuário", erro)
+        }
+    }
+
+    updateUser(id, nome, email, senha, endereco, telefone, cpf){
+        try{
+            const user = this.users.find(user => user.id === id);
+            if(!user) return console.log("Usuário não existente/encontrado");
+            user.nome = nome;
+            user.email = email;
+            user.senha = senha;
+            user.endereco = endereco;
+            user.telefone = telefone;
+            user.cpf = cpf;
+            this.saveUsers();
+            return user;
+        }catch(erro){
+            console.log("Erro ao atualizar o usuário", erro)
+        }
+    }
 }
 
 module.exports = new userService;
