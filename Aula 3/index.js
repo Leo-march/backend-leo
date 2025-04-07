@@ -20,7 +20,7 @@ app.post('/users', (req,res) =>{
 //rota para mostrar os usuários
 
 app.get("/users", (req, res) =>{
-    res.json(userService.getUsers())
+    res.json(userService.getUsers)
 });
 
 const port = 3000;
