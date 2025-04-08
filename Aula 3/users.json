@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal balls",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 2,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal balls",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 4,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "jamalsenha",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 5,
+        "nome": "Jamal",
+        "email": "jamalballs@gmail.com",
+        "senha": "$2b$10$dxtj7bh1mSKBcSzyA0A6qO7t1QUkHJ0pTuQB083UiOcgLzD7.d0g.",
+        "endereco": "rua jamal balls",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 6,
+        "nome": "Devito",
+        "email": "devitoballs@gmail.com",
+        "senha": "$2b$10$FCj7R/TxKiif9kJXt0swYeJXWS3dQB1WL3MhL5Blb2o3WfX6E.LxK",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988801"
+    },
+    {
+        "id": 7,
+        "nome": "Devito",
+        "email": "devitoballs@gmail.com",
+        "senha": "$2b$10$jbuLQL0zY/a6O9Mhmclq9uYPPoFsbFy3HFPSdP8./.EyqgoZGnfd6",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988800"
+    },
+    {
+        "id": 8,
+        "nome": "Devito",
+        "email": "devitoballs@gmail.com",
+        "senha": "$2b$10$Knre51TYPgY5Fzs.gb720.4yA8o8v6Wb9y8S561ggli4kxduN5f4u",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "81793988809"
+    },
+    {
+        "id": 9,
+        "nome": "Devito",
+        "email": "devitoballs@gmail.com",
+        "senha": "$2b$10$N6/1.2jx1rzb0C16ImM1Eur4QiQvd3ne4s.m5maYZ.p9/26imvaoC",
+        "endereco": "rua jamal africa",
+        "telefone": "99740-6245",
+        "cpf": "817939888015"
+    }
+]
