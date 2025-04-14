@@ -3,6 +3,7 @@ const path = require('path'); // modulo para manipular caminhos
 const fs = require('fs'); // modulo para manipular arquivos
 const bcryptjs = require('bcryptjs'); //modulo para criptografar a senha
 const { error } = require('console');
+const mysql = require('./mysql')
 
 class userService {
     constructor() {
@@ -46,10 +47,12 @@ class userService {
             const dados = this.users.find(user => user.cpf === cpf);
             if (dados) throw new Error("CPF já cadastrado");
             const senhaCripto = await bcryptjs.hash(senha, 10)
-            const user = new User(this.nextid++, nome, email, senhaCripto, endereco, telefone, cpf);
-            this.users.push(user);
-            this.saveUsers();
-            return user;
+            const resultados = await mysql.execute(
+                `INSERT INTO usuarios(nome, email, senha, endereco, telefone, cpf) 
+	                VALUES (?, ?, ?, ?, ?, ?);`,
+                [nome, email, senhaCripto, endereco, telefone, cpf]
+            );
+            return resultados;
         } catch (erro) {
             console.log("Erro ao adicionar o usuário", erro)
             throw erro;
@@ -73,10 +76,10 @@ class userService {
             const senhaCripto = await bcryptjs.hash(senha, 10);
             const user = this.users.find(user => user.id === id);
             const dados = this.users.some(u => u.id !== id && u.cpf === cpf);
-            if (dados) { 
-                throw new Error("CPF já cadastrado"); 
+            if (dados) {
+                throw new Error("CPF já cadastrado");
             }
-            if (!user){
+            if (!user) {
                 return console.log("Usuário não existente/encontrado");
             }
             user.nome = nome;
