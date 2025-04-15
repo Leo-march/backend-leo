@@ -44,8 +44,6 @@ class userService {
 
     async addUser(nome, email, senha, endereco, telefone, cpf) {//função para adicionar um usuário
         try {
-            const dados = this.users.find(user => user.cpf === cpf);
-            if (dados) throw new Error("CPF já cadastrado");
             const senhaCripto = await bcryptjs.hash(senha, 10)
             const resultados = await mysql.execute(
                 `INSERT INTO usuarios(nome, email, senha, endereco, telefone, cpf) 
@@ -74,22 +72,11 @@ class userService {
     async updateUser(id, nome, email, senha, endereco, telefone, cpf) {
         try {
             const senhaCripto = await bcryptjs.hash(senha, 10);
-            const user = this.users.find(user => user.id === id);
-            const dados = this.users.some(u => u.id !== id && u.cpf === cpf);
-            if (dados) {
-                throw new Error("CPF já cadastrado");
-            }
-            if (!user) {
-                return console.log("Usuário não existente/encontrado");
-            }
-            user.nome = nome;
-            user.email = email;
-            user.senha = senhaCripto;
-            user.endereco = endereco;
-            user.telefone = telefone;
-            user.cpf = cpf;
-            this.saveUsers();
-            return user;
+            const resultados = await mysql.execute(
+                `UPDATE usuarios SET nome = ?, senha = ?, email = ?, endereco = ?, telefone = ?, cpf = ? WHERE idUsuário = ?;`,
+                [nome, email, senhaCripto, endereco, telefone, cpf, id]
+            );
+            return resultados;
         } catch (erro) {
             console.log("Erro ao atualizar o usuário", erro)
         }

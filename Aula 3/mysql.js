@@ -5,7 +5,7 @@ const pool = mysql.createConnection({
     "password": "root",
     "database": "hopi_hari",
     "host": "localhost",
-    "port": "3306"
+    "port": "3307"
 });
 
 exports.execute = (query, param = [], varPool = pool) => {
