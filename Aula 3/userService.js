@@ -3,7 +3,8 @@ const path = require('path'); // modulo para manipular caminhos
 const fs = require('fs'); // modulo para manipular arquivos
 const bcryptjs = require('bcryptjs'); //modulo para criptografar a senha
 const { error } = require('console');
-const mysql = require('./mysql')
+const mysql = require('./mysql');
+const { get } = require('http');
 
 class userService {
 
@@ -21,15 +22,30 @@ class userService {
             throw erro;
         }
     }
-    getUsers() {
-        return this.users
+    async getUsers(idUsuario) {
+        try {
+            const resultado = await mysql.execute(
+                `SELECT idUsuário FROM usuarios WHERE idUsuário = ?;`,
+                [idUsuario]);
+            console.log("Resultado", resultado)
+            return resultado;
+        } catch (erro) {
+            console.log("Erro ao buscar o usuário", erro)
+        }
     }
 
-    deleteUser(id) {
+    async deleteUser(id) {
         try {
-            this.users = this.users.filter(user => user.id !== id);
-            this.saveUsers();
-        } catch {
+            const user = await this.getUsers(id);
+            if (user.length == 0) {
+                return res.status(404).json({ error: "Usuário não encontrado" });
+            }
+            const resultado = await mysql.execute(
+                `DELETE FROM usuarios WHERE idUsuário = ?;`,
+                [id]
+            );
+            return resultado;
+        } catch (erro){
             console.log("Erro ao deletar o usuário", erro)
         }
     }
